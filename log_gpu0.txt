@@ -1,0 +1,209 @@
+/usr/local/lib/python3.10/dist-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+检测到本地模型，跳过 W&B 联网下载: shuoqii-the-chinese-university-of-hong-kong/mctd-eval/q940a89g
+[2026-03-13 15:17:52,463][OpenGL.acceleratesupport][INFO] - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+/usr/local/lib/python3.10/dist-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+  warnings.warn(
+INFO: GPU available: True (cuda), used: True
+[2026-03-13 15:17:52,700][lightning.pytorch.utilities.rank_zero][INFO] - GPU available: True (cuda), used: True
+INFO: TPU available: False, using: 0 TPU cores
+[2026-03-13 15:17:52,701][lightning.pytorch.utilities.rank_zero][INFO] - TPU available: False, using: 0 TPU cores
+INFO: IPU available: False, using: 0 IPUs
+[2026-03-13 15:17:52,701][lightning.pytorch.utilities.rank_zero][INFO] - IPU available: False, using: 0 IPUs
+INFO: HPU available: False, using: 0 HPUs
+[2026-03-13 15:17:52,701][lightning.pytorch.utilities.rank_zero][INFO] - HPU available: False, using: 0 HPUs
+INFO: `Trainer(limit_val_batches=1)` was configured so 1 batch will be used.
+[2026-03-13 15:17:52,701][lightning.pytorch.utilities.rank_zero][INFO] - `Trainer(limit_val_batches=1)` was configured so 1 batch will be used.
+Dataset: pointmaze-giant-navigate-v0
+Total samples: 100050, Subtrajectory length: 2001
+Observation shape: (100050, 4)
+Observation mean: [ 2.5084105e+01  1.7574434e+01 -1.8883398e-04 -1.3492048e-04]
+Observation std:  [14.793433   11.997641    0.03395361  0.03872422]
+Action shape: (100050, 2)
+Action mean: [-0.00022348  0.00493897]
+Action std:  [0.70801044 0.6938141 ]
+Preprocessed Dataset Statistics
+Observation shape: (90050, 201, 4)
+Action shape: (90050, 201, 2)
+Reward shape: (90050, 201)
+Value shape: (90050, 201)
+wandb: Currently logged in as: shuoqii (shuoqii-the-chinese-university-of-hong-kong). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: Tracking run with wandb version 0.17.9
+wandb: Run data is saved locally in /home/jsyoon/mctd/outputs/2026-03-13/15-17-50/wandb/run-20260313_151754-cucsio4k
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run PMGN-FMCTD_TaskID2_Seed0 (2026-03-13/15-17-50)
+wandb: ⭐️ View project at https://wandb.ai/shuoqii-the-chinese-university-of-hong-kong/mctd-eval
+wandb: 🚀 View run at https://wandb.ai/shuoqii-the-chinese-university-of-hong-kong/mctd-eval/runs/cucsio4k
+INFO: Restoring states from the checkpoint path at outputs/downloaded/shuoqii-the-chinese-university-of-hong-kong/mctd-eval/q940a89g/model.ckpt
+[2026-03-13 15:17:56,294][lightning.pytorch.utilities.rank_zero][INFO] - Restoring states from the checkpoint path at outputs/downloaded/shuoqii-the-chinese-university-of-hong-kong/mctd-eval/q940a89g/model.ckpt
+/usr/local/lib/python3.10/dist-packages/lightning/fabric/utilities/cloud_io.py:56: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+INFO: LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[2026-03-13 15:17:56,799][lightning.pytorch.accelerators.cuda][INFO] - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+INFO: Loaded model weights from the checkpoint at outputs/downloaded/shuoqii-the-chinese-university-of-hong-kong/mctd-eval/q940a89g/model.ckpt
+[2026-03-13 15:17:56,800][lightning.pytorch.utilities.rank_zero][INFO] - Loaded model weights from the checkpoint at outputs/downloaded/shuoqii-the-chinese-university-of-hong-kong/mctd-eval/q940a89g/model.ckpt
+Validation: |          | 0/? [00:00<?, ?it/s]Validation:   0%|          | 0/1 [00:00<?, ?it/s]Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Interacting with environment... This may take a couple minutes.
+Task 2 is set: {'task_name': 'task2', 'init_ij': (1, 14), 'init_xy': (52.0, 0.0), 'goal_ij': (10, 1), 'goal_xy': (0.0, 36.0)}
+============ Selection Start ============
+No more expandable nodes
+============ Selection End ============
+============ Expansion Start ============
+Expanded node plan hists: torch.Size([21, 200, 5, 2])
+============ Expansion End ============
+============ Simulation Start ============
+Value estimation plan hist: torch.Size([6, 200, 5, 2])
+Value Calculation: [0.   0.   0.46 0.   0.47], ['Warp' 'Warp' 'Achieved' 'Warp' 'Achieved']
+============ Simulation End ============
+============ Backpropagation Start ============
+============ Backpropagation End ============
+============ Early Termination Start ============
+Early Termination: ['Warp' 'Warp' 'Warp' 'Warp' 'Warp'], [None None None None None]
+============ Early Termination End ============
+============ Selection Start ============
+/home/jsyoon/mctd/algorithms/diffusion_forcing/tree_node.py:81: RuntimeWarning: invalid value encountered in sqrt
+  uct_values.append(_value + exp_weight * np.sqrt(np.log(1e-6 + total_visit_count) / (1e-6 + _visit_count)))
+No more expandable nodes
+============ Selection End ============
+============ Expansion Start ============
+Expanded node plan hists: torch.Size([21, 200, 25, 2])
+============ Expansion End ============
+============ Simulation Start ============
+Value estimation plan hist: torch.Size([4, 200, 25, 2])
+Value Calculation: [0.    0.47  0.46  0.    0.38  0.    0.455 0.    0.    0.39  0.465 0.45
+ 0.465 0.46  0.    0.395 0.    0.    0.46  0.    0.45  0.385 0.    0.
+ 0.365], ['Warp' 'Achieved' 'Achieved' 'NotReached' 'Achieved' 'Warp' 'Achieved'
+ 'Warp' 'Warp' 'Achieved' 'Achieved' 'Achieved' 'Achieved' 'Achieved'
+ 'Warp' 'Achieved' 'NotReached' 'Warp' 'Achieved' 'Warp' 'Achieved'
+ 'Achieved' 'Warp' 'Warp' 'Achieved']
+============ Simulation End ============
+============ Backpropagation Start ============
+============ Backpropagation End ============
+============ Early Termination Start ============
+Early Termination: ['Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp'
+ 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp'
+ 'Warp' 'Warp' 'Warp' 'Warp' 'Warp'], [None None None None None None None None None None None None None None
+ None None None None None None None None None None None]
+============ Early Termination End ============
+============ Selection Start ============
+============ Selection End ============
+============ Expansion Start ============
+Expanded node plan hists: torch.Size([21, 200, 112, 2])
+============ Expansion End ============
+============ Simulation Start ============
+Value estimation plan hist: torch.Size([2, 200, 112, 2])
+Value Calculation: [0.46  0.455 0.    0.    0.    0.    0.46  0.    0.    0.    0.465 0.
+ 0.    0.    0.    0.465 0.    0.385 0.46  0.46  0.    0.    0.    0.46
+ 0.455 0.    0.    0.    0.465 0.    0.    0.465 0.    0.    0.    0.455
+ 0.    0.    0.38  0.46  0.455 0.    0.385 0.    0.46  0.    0.    0.
+ 0.465 0.    0.    0.    0.465 0.    0.    0.    0.455 0.    0.    0.
+ 0.455 0.    0.    0.385 0.    0.46  0.    0.    0.38  0.465 0.    0.46
+ 0.465 0.    0.    0.455 0.46  0.    0.    0.    0.    0.455 0.    0.385
+ 0.46  0.465 0.385 0.465 0.    0.    0.46  0.    0.    0.    0.455 0.
+ 0.    0.46  0.385 0.46  0.    0.    0.    0.    0.    0.    0.    0.
+ 0.465 0.    0.    0.   ], ['Achieved' 'Achieved' 'NotReached' 'NotReached' 'Warp' 'Warp' 'Achieved'
+ 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp' 'Warp' 'Warp' 'Achieved'
+ 'Warp' 'Achieved' 'Achieved' 'Achieved' 'Warp' 'Warp' 'Warp' 'Achieved'
+ 'Achieved' 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp' 'Achieved'
+ 'Warp' 'NotReached' 'Warp' 'Achieved' 'Warp' 'Warp' 'Achieved' 'Achieved'
+ 'Achieved' 'Warp' 'Achieved' 'Warp' 'Achieved' 'Warp' 'Warp' 'NotReached'
+ 'Achieved' 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp' 'Warp'
+ 'Achieved' 'Warp' 'Warp' 'Warp' 'Achieved' 'NotReached' 'Warp' 'Achieved'
+ 'Warp' 'Achieved' 'Warp' 'Warp' 'Achieved' 'Achieved' 'Warp' 'Achieved'
+ 'Achieved' 'Warp' 'Warp' 'Achieved' 'Achieved' 'Warp' 'Warp' 'Warp'
+ 'Warp' 'Achieved' 'Warp' 'Achieved' 'Achieved' 'Achieved' 'Achieved'
+ 'Achieved' 'NotReached' 'NotReached' 'Achieved' 'Warp' 'Warp' 'Warp'
+ 'Achieved' 'Warp' 'Warp' 'Achieved' 'Achieved' 'Achieved' 'Warp' 'Warp'
+ 'NotReached' 'Warp' 'Warp' 'Warp' 'NotReached' 'Warp' 'Achieved' 'Warp'
+ 'Warp' 'NotReached']
+============ Simulation End ============
+============ Backpropagation Start ============
+============ Backpropagation End ============
+============ Early Termination Start ============
+Early Termination: ['Achieved' 'Achieved' 'Warp' 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp'
+ 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp'
+ 'Warp' 'Achieved' 'Achieved' 'Warp' 'Warp' 'Warp' 'Achieved' 'Achieved'
+ 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp'
+ 'Warp' 'Achieved' 'Warp' 'Warp' 'Warp' 'Achieved' 'Achieved' 'Warp'
+ 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp'
+ 'Warp' 'Achieved' 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp' 'Warp'
+ 'Achieved' 'Warp' 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp' 'Warp'
+ 'Achieved' 'Warp' 'Achieved' 'Achieved' 'Warp' 'Warp' 'Achieved'
+ 'Achieved' 'Warp' 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp'
+ 'Achieved' 'Achieved' 'Warp' 'Achieved' 'Warp' 'Warp' 'Achieved' 'Warp'
+ 'Warp' 'Warp' 'Achieved' 'Warp' 'Warp' 'Achieved' 'Warp' 'Achieved'
+ 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Warp' 'Achieved' 'Warp'
+ 'Warp' 'Warp'], [108 109 None None None None 108 None None None 107 None None None None
+ 107 None None 108 108 None None None 108 109 None None None 107 None None
+ 107 None None None 109 None None None 108 109 None None None 108 None
+ None None 107 None None None 107 None None None 109 None None None 109
+ None None None None 108 None None None 107 None 108 107 None None 109 108
+ None None None None 109 None None 108 107 None 107 None None 108 None
+ None None 109 None None 108 None 108 None None None None None None None
+ None 107 None None None]
+============ Early Termination End ============
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.13it/s]Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.13it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                  Validate metric                   ┃                    DataLoader 0                    ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│             validation/episode_reward              │                        1.0                         │
+│         validation/episode_reward_if_stay          │                        1.0                         │
+│               validation/first_reach               │                       547.0                        │
+│              validation/p_search_num               │                       142.0                        │
+│              validation/planning_time              │                 4.3106560707092285                 │
+│               validation/search_num                │                        3.0                         │
+│              validation/success_rate               │                        1.0                         │
+│           validation_time/backprop_time            │               0.0010631084442138672                │
+│       validation_time/early_termination_time       │                0.02279043197631836                 │
+│           validation_time/expansion_time           │                 3.1315650939941406                 │
+│           validation_time/selection_time           │                0.009055376052856445                │
+│     validation_time/simul_node_allocation_time     │                0.005950212478637695                │
+│ validation_time/simul_noiselevel_zero_padding_time │               0.0013189315795898438                │
+│    validation_time/simul_value_calculation_time    │                        0.0                         │
+│    validation_time/simul_value_estimation_time     │                        0.0                         │
+│          validation_time/simulation_time           │                 0.468700647354126                  │
+└────────────────────────────────────────────────────┴────────────────────────────────────────────────────┘
+wandb: - 0.055 MB of 0.055 MB uploadedwandb: \ 0.055 MB of 0.055 MB uploadedwandb: | 0.055 MB of 0.055 MB uploadedwandb: / 0.055 MB of 0.076 MB uploadedwandb: - 0.072 MB of 0.076 MB uploadedwandb: \ 0.072 MB of 0.076 MB uploadedwandb: | 0.072 MB of 0.076 MB uploadedwandb: / 0.072 MB of 0.076 MB uploadedwandb: - 0.072 MB of 0.076 MB uploadedwandb: \ 0.072 MB of 0.076 MB uploadedwandb: | 0.072 MB of 0.076 MB uploadedwandb: / 0.072 MB of 0.076 MB uploadedwandb: - 0.076 MB of 0.076 MB uploadedwandb: 
+wandb: Run history:
+wandb:                                              epoch ▁
+wandb:                                trainer/global_step ▁
+wandb:                          validation/episode_reward ▁
+wandb:                  validation/episode_reward_if_stay ▁
+wandb:                             validation/first_reach ▁
+wandb:                            validation/p_search_num ▁
+wandb:                           validation/planning_time ▁
+wandb:                              validation/search_num ▁
+wandb:                            validation/success_rate ▁
+wandb:                      validation_time/backprop_time ▁
+wandb:             validation_time/early_termination_time ▁
+wandb:                     validation_time/expansion_time ▁
+wandb:                     validation_time/selection_time ▁
+wandb:         validation_time/simul_node_allocation_time ▁
+wandb: validation_time/simul_noiselevel_zero_padding_time ▁
+wandb:       validation_time/simul_value_calculation_time ▁
+wandb:        validation_time/simul_value_estimation_time ▁
+wandb:                    validation_time/simulation_time ▁
+wandb: 
+wandb: Run summary:
+wandb:                                              epoch 0
+wandb:                                trainer/global_step 0
+wandb:                          validation/episode_reward 1.0
+wandb:                  validation/episode_reward_if_stay 1.0
+wandb:                             validation/first_reach 547.0
+wandb:                            validation/p_search_num 142.0
+wandb:                           validation/planning_time 4.31066
+wandb:                              validation/search_num 3.0
+wandb:                            validation/success_rate 1.0
+wandb:                      validation_time/backprop_time 0.00106
+wandb:             validation_time/early_termination_time 0.02279
+wandb:                     validation_time/expansion_time 3.13157
+wandb:                     validation_time/selection_time 0.00906
+wandb:         validation_time/simul_node_allocation_time 0.00595
+wandb: validation_time/simul_noiselevel_zero_padding_time 0.00132
+wandb:       validation_time/simul_value_calculation_time 0.0
+wandb:        validation_time/simul_value_estimation_time 0.0
+wandb:                    validation_time/simulation_time 0.4687
+wandb: 
+wandb: 🚀 View run PMGN-FMCTD_TaskID2_Seed0 (2026-03-13/15-17-50) at: https://wandb.ai/shuoqii-the-chinese-university-of-hong-kong/mctd-eval/runs/cucsio4k
+wandb: ⭐️ View project at: https://wandb.ai/shuoqii-the-chinese-university-of-hong-kong/mctd-eval
+wandb: Synced 5 W&B file(s), 2 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./outputs/2026-03-13/15-17-50/wandb/run-20260313_151754-cucsio4k/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.

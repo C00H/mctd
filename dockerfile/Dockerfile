@@ -4,6 +4,7 @@ ENV TZ=Korea/Seoul
 ENV PYTHONUNBUFFERED 1
 ENV PIP_DISABLE_PIP_VERSION_CHECK 1
 ENV PIP_NO_CACHE_DIR 1
+RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list && sed -i 's/security.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
   ffmpeg git python3-pip vim libglew-dev cmake \
   x11-xserver-utils xvfb \
@@ -55,7 +56,7 @@ RUN apt-get -y install libosmesa6-dev patchelf
 RUN pip3 install --upgrade torchvision
 
 # Copy the mujoco folder
-COPY ./mujoco/generated /usr/local/lib/python3.10/dist-packages/mujoco_py/generated
+# COPY ./mujoco/generated /usr/local/lib/python3.10/dist-packages/mujoco_py/generated
 
 # Give the authority to the user for the mujoco_py library
 RUN chmod -R 777 /usr/local/lib/python3.10/dist-packages/mujoco_py/generated

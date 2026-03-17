@@ -188,7 +188,8 @@ def run(cfg: DictConfig):
 
     if load_id and "_on_compute_node" not in cfg:
         run_path = f"{cfg.wandb.entity}/{cfg.wandb.project}/{load_id}"
-        download_latest_checkpoint(run_path, Path("outputs/downloaded"))
+        # download_latest_checkpoint(run_path, Path("outputs/downloaded"))
+        print(f"检测到本地模型，跳过 W&B 联网下载: {run_path}")
 
     if "cluster" in cfg and not "_on_compute_node" in cfg:
         print(cyan("Slurm detected, submitting to compute node instead of running locally..."))
