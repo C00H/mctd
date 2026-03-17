@@ -1,12 +1,14 @@
 # Monte Carlo Tree Diffusion (MCTD)
 
-This repository provides the **official PyTorch implementation** for Monte Carlo Tree Diffusion (MCTD) and Fast Monte Carlo Tree Diffusion (Fast-MCTD). Our work demonstrates how to leverage Monte Carlo Tree Search (MCTS) to guide diffusion models during inference, significantly improving planning performance in complex environments like the point and ant mazes.
+This repository provides an **unofficial PyTorch reproduction** of Monte Carlo Tree Diffusion (MCTD) and Fast Monte Carlo Tree Diffusion (Fast-MCTD).
+
+> Disclaimer: This is a third-party reproduction project and is not an official implementation from the original paper authors.
 
 ## Monte Carlo Tree Diffusion (MCTD)
 
-Author: Jaesik Yoon, Hyeonseo Cho, Doojin Baek, Yoshua Bengio, Sungjin Ahn
+Original paper authors: Jaesik Yoon, Hyeonseo Cho, Doojin Baek, Yoshua Bengio, Sungjin Ahn
 
-_Published in the proceedings of the International Conference on Machine Learning (ICML) 2025, Spotlight._
+_ICML 2025 (Spotlight)._
 
 [[Paper]](https://arxiv.org/abs/2502.07202) [[Project Page]](https://jaesikyoon.com/mctd-page/)
 
@@ -16,7 +18,7 @@ Monte Carlo Tree Diffusion (MCTD) is a novel framework that improves the inferen
 
 ## Fast Monte Carlo Tree Diffusion (Fast-MCTD)
 
-Author: Jaesik Yoon*, Hyeonseo Cho*, Yoshua Bengio, Sungjin Ahn (* equal contribution)
+Original paper authors: Jaesik Yoon*, Hyeonseo Cho*, Yoshua Bengio, Sungjin Ahn (* equal contribution)
 
 _Preprint, 2025._
 
@@ -31,7 +33,7 @@ Fast Monte Carlo Tree Diffusion (Fast-MCTD) is an enhanced version of MCTD that 
 We recommend using Docker to set up the environment for reproducibility.
 
 **1. Download MuJoCo binaries:**
-Our Docker setup requires the MuJoCo 2.1.0 binaries. Please download them from this [link](https://drive.google.com/drive/folders/1gwXsIzpTILXG6kZv1EDrLBeEKYpPAl-G?usp=drive_link) and place the `mujoco210` directory into `./dockerfile/mujoco/`. The final path should look like `./dockerfile/mujoco/mujoco210`.
+The Docker setup in this repository requires MuJoCo 2.1.0 binaries. Please download them from this [link](https://drive.google.com/drive/folders/1gwXsIzpTILXG6kZv1EDrLBeEKYpPAl-G?usp=drive_link) and place the `mujoco210` directory into `./dockerfile/mujoco/`. The final path should look like `./dockerfile/mujoco/mujoco210`.
 
 **2. Build the Docker image:**
 
@@ -57,35 +59,39 @@ Download the models from this [link](https://drive.google.com/drive/folders/1Fo
 
 - `dql_trained_models.tar.gz`: Contains pre-trained models for DQL. Extract this to the `./dql/` directory.
     
-- `planner_trained_models.tar.gz`: Contains pre-trained diffusion models. **This requires a specific directory structure to match our W&B logs.**
-    
-    - **First, create a directory path:** `mkdir -p ./output/downloaded/<YOUR_WANDB_ENTITY>/<YOUR_WANDB_PROJECT>`
-        
-        - Replace `<YOUR_WANDB_ENTITY>` with your W&B username or entity name.
-            
-        - Replace `<YOUR_WANDB_PROJECT>` with a project name of your choice (e.g., `mctd-eval`).
-            
-    - **Then, extract the archive into that directory.**
+- `planner_trained_models.tar.gz`: Contains pre-trained diffusion models. **This requires a specific directory structure to match the released W&B logs.**
+
+  - **First, create a directory path:** `./outputs/downloaded/<YOUR_WANDB_ENTITY>/<YOUR_WANDB_PROJECT>`
+
+    - Replace `<YOUR_WANDB_ENTITY>` with your W&B username or entity name.
+
+    - Replace `<YOUR_WANDB_PROJECT>` with a project name of your choice (for example, `mctd-eval`).
+
+    - Bash: `mkdir -p ./outputs/downloaded/<YOUR_WANDB_ENTITY>/<YOUR_WANDB_PROJECT>`
+
+    - PowerShell: `New-Item -ItemType Directory -Force -Path ./outputs/downloaded/<YOUR_WANDB_ENTITY>/<YOUR_WANDB_PROJECT>`
+
+  - **Then, extract the archive into that directory.**
         
 
 ### **2. Configure and Create Evaluation Jobs**
 
 Example scripts are provided to create evaluation experiments. You need to edit these files to match your W&B setup.
 
-- Open `insert_point_maze_validation_jobs.py` and `insert_antmaze_validation_jobs.py`.
+- Open `insert_pointmaze_validation_jobs.py` and `insert_antmaze_validation_jobs.py`.
     
 - **At the top of each file, set the `WANDB_ENTITY` and `WANDB_PROJECT_NAME` variables** to the same values you used in the step above.
     
 - Run the scripts to add the jobs to the queue:
     
 ```bash
-python insert_point_maze_validation_jobs.py
+python insert_pointmaze_validation_jobs.py
 python insert_antmaze_validation_jobs.py
 ```
 
 ### **3. Run the Evaluation**
 
-Execute the jobs using the `run_jobs.py` and `run_dql_jobs.py scripts.
+Execute the jobs using the `run_jobs.py` and `run_dql_jobs.py` scripts.
 
 - Open the scripts and configure the `available_gpus` variable to specify which GPUs to use.
     
@@ -123,7 +129,7 @@ The results will be saved to the `exp_results` directory and printed to the te
 
 ### Public W&B Logs
 
-The full Weights & Biases logs for the experiments in our paper are publicly available at this [link](https://wandb.ai/jaesikyoon/jaesik_mctd). These logs correspond to the configurations in the example job creation scripts.
+The public Weights & Biases logs released by the original authors are available at this [link](https://wandb.ai/jaesikyoon/jaesik_mctd). These logs are useful for checking expected behavior and configuration consistency.
 
 
 ## Training
@@ -155,7 +161,7 @@ python run_jobs.py
 
 ## References
 
-If you find our work useful, please consider citing:
+If this reproduction repository is useful for your experiments, please cite the original papers:
 
 ```bibtex
 @inproceedings{yoonmonte,
@@ -175,4 +181,4 @@ If you find our work useful, please consider citing:
 ```
 
 ## Acknowledgement
-This repo is forked from [Boyuan Chen](https://boyuan.space/)'s research template [repo](https://github.com/buoyancy99/research-template), especially, it is based on Diffusion Forcing source code, [repo](https://github.com/buoyancy99/diffusion-forcing/tree/main). We thank the authors for making their code publicly available.
+This repository is forked from [Boyuan Chen](https://boyuan.space/)'s research template [repo](https://github.com/buoyancy99/research-template), and is based on the Diffusion Forcing source code [repo](https://github.com/buoyancy99/diffusion-forcing/tree/main). Thanks to the original authors for open-sourcing their work.
